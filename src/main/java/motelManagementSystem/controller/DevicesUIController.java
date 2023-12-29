@@ -37,7 +37,7 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TableColumn<Room, Integer> moneyColumn;
     @FXML
-    private TableColumn<Room, Integer> enegyColumn;
+    private TableColumn<Room, Integer> energyColumn;
     @FXML
     private TableColumn<Room, Integer> waterColumn;
     @FXML
@@ -57,7 +57,7 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TextField moneyTextField;
     @FXML
-    private TextField enegyTextField;
+    private TextField energyTextField;
     @FXML
     private TextField waterTextField;
     @FXML
@@ -105,7 +105,7 @@ public class DevicesUIController implements Initializable {
         numberColumn.setCellValueFactory(new PropertyValueFactory<Room, String>( "number"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Room, String>( "name"));
         moneyColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "money"));
-        enegyColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "enegy"));
+        energyColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "energy"));
         waterColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "water"));
         wifiColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "wifi"));
         extraColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "extra"));
@@ -157,7 +157,7 @@ public class DevicesUIController implements Initializable {
         numberTextField.setText(null);
         nameTextField.setText(null);
         moneyTextField.setText(null);
-        enegyTextField.setText(null);
+        energyTextField.setText(null);
         waterTextField.setText(null);
         wifiTextField.setText(null);
         extraTextField.setText(null);
@@ -165,7 +165,7 @@ public class DevicesUIController implements Initializable {
         statusTextField.setText(null);
     }
 
-    //Mở của sổ chỉnh sửa thiết bị
+    //Mở của sổ chỉnh sửa phòng
     @FXML
     public void openEditWindow() {
         addAndEditWindow.setVisible(true);
@@ -176,7 +176,7 @@ public class DevicesUIController implements Initializable {
         numberTextField.setText(room.getNumber());
         nameTextField.setText(room.getName());
         moneyTextField.setText(String.valueOf(room.getMoney()));
-        enegyTextField.setText(String.valueOf(room.getEnergy()));
+        energyTextField.setText(String.valueOf(room.getEnergy()));
         waterTextField.setText(String.valueOf(room.getWater()));
         wifiTextField.setText(String.valueOf(room.getWifi()));
         extraTextField.setText(String.valueOf(room.getExtra()));
@@ -197,7 +197,7 @@ public class DevicesUIController implements Initializable {
         newRoom.setNumber(numberTextField.getText());
         newRoom.setName(nameTextField.getText());
         newRoom.setMoney(Integer.parseInt(moneyTextField.getText()));
-        newRoom.setEnergy(Integer.parseInt(enegyTextField.getText()));
+        newRoom.setEnergy(Integer.parseInt(energyTextField.getText()));
         newRoom.setWater(Integer.parseInt(waterTextField.getText()));
         newRoom.setWifi(Integer.parseInt(wifiTextField.getText()));
         newRoom.setExtra(Integer.parseInt(extraTextField.getText()));
@@ -218,7 +218,7 @@ public class DevicesUIController implements Initializable {
         updateRoom.setNumber(numberTextField.getText());
         updateRoom.setName(nameTextField.getText());
         updateRoom.setMoney(Integer.parseInt(moneyTextField.getText()));
-        updateRoom.setEnergy(Integer.parseInt(enegyTextField.getText()));
+        updateRoom.setEnergy(Integer.parseInt(energyTextField.getText()));
         updateRoom.setWater(Integer.parseInt(waterTextField.getText()));
         updateRoom.setWifi(Integer.parseInt(wifiTextField.getText()));
         updateRoom.setExtra(Integer.parseInt(extraTextField.getText()));
