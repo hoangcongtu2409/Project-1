@@ -1,4 +1,4 @@
-module teachingAidManagementSystem {
+module motelManagementSystem {
     requires javafx.controls;
     requires javafx.fxml;
 
