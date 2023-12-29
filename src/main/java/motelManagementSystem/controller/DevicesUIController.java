@@ -12,13 +12,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import motelManagementSystem.App;
-import motelManagementSystem.classes.Devices;
+import motelManagementSystem.classes.Room;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DevicesUIController implements Initializable {
+
     @FXML
     private AnchorPane mainWindow;
     @FXML
@@ -28,35 +29,50 @@ public class DevicesUIController implements Initializable {
     @FXML
     private HBox editButtons;
     @FXML
-    private TableView<Devices> table;
+    private TableView<Room> table;
     @FXML
-    private TableColumn<Devices, String> iconColumn;
+    private TableColumn<Room, String> numberColumn;
     @FXML
-    private TableColumn<Devices, String> idColumn;
+    private TableColumn<Room, String> nameColumn;
     @FXML
-    private TableColumn<Devices, String> nameColumn;
+    private TableColumn<Room, Integer> moneyColumn;
     @FXML
-    private TableColumn<Devices, Integer> amountColumn;
+    private TableColumn<Room, Integer> enegyColumn;
     @FXML
-    private TableColumn<Devices, Integer> usableColumn;
+    private TableColumn<Room, Integer> waterColumn;
     @FXML
-    private TableColumn<Devices, Integer> brokenColumn;
+    private TableColumn<Room, Integer> wifiColumn;
     @FXML
-    private TableColumn<Devices, Void> editColumn;
+    private TableColumn<Room, Integer> extraColumn;
     @FXML
-    private TextField iconTextField;
+    private TableColumn<Room, Integer> totalColumn;
     @FXML
-    private TextField idTextField;
+    private TableColumn<Room, String> statusColumn;
+    @FXML
+    private TableColumn<Room, Void> editColumn;
+    @FXML
+    private TextField numberTextField;
     @FXML
     private TextField nameTextField;
     @FXML
-    private TextField amountTextField;
+    private TextField moneyTextField;
     @FXML
-    private TextField usableTextField;
+    private TextField enegyTextField;
     @FXML
-    private TextField brokenTextField;
-    private ObservableList<Devices> devicesList;
-    private Devices device;
+    private TextField waterTextField;
+    @FXML
+    private TextField wifiTextField;
+    @FXML
+    private TextField extraTextField;
+    @FXML
+    private TextField totalTextField;
+    @FXML
+    private TextField statusTextField;
+    private ObservableList<Room> roomList;
+    private Room room;
+
+    public DevicesUIController() {
+    }
 
     @FXML
     public void switchToHome() throws IOException {
@@ -81,27 +97,30 @@ public class DevicesUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO Sửa lại sau khi có database: devicesList sẽ lấy danh sách thiết bị từ database
-        devicesList = FXCollections.observableArrayList(
-                new Devices("MIC", "MIC", "Micro", 22, 12, 3),
-                new Devices("Mic", "micro", "míc", 22, 22, 22)
+        //TODO Sửa lại sau khi có database: devicesList sẽ lấy danh sách phòng từ database
+        roomList = FXCollections.observableArrayList(
+                new Room("MIC", "MIC",22, 12, 3,3,3,3, "Micro")
+
         );
-        iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("iconDevice"));
-        idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>( "idDevice"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>( "nameDevice"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "amountDevice"));
-        usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "usableDevice"));
-        brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "brokenDevice"));
-        table.setItems(devicesList);
+        numberColumn.setCellValueFactory(new PropertyValueFactory<Room, String>( "number"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Room, String>( "name"));
+        moneyColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "money"));
+        enegyColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "enegy"));
+        waterColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "water"));
+        wifiColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "wifi"));
+        extraColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "extra"));
+        totalColumn.setCellValueFactory(new PropertyValueFactory<Room, Integer>( "total"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<Room, String>( "status"));
+        table.setItems(roomList);
         addButtonToTable();
     }
 
     //Thêm các nút edit vào các hàng
     private void addButtonToTable() {
-        Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>> cellFactory = new Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>>() {
+        Callback<TableColumn<Room, Void>, TableCell<Room, Void>> cellFactory = new Callback<TableColumn<Room, Void>, TableCell<Room, Void>>() {
             @Override
-            public TableCell<Devices, Void> call(final TableColumn<Devices, Void> devicesVoidTableColumn) {
-                final TableCell<Devices, Void> cell= new TableCell<Devices, Void>() {
+            public TableCell<Room, Void> call(final TableColumn<Room, Void> devicesVoidTableColumn) {
+                final TableCell<Room, Void> cell= new TableCell<Room, Void>() {
                     final Button btn = new Button("Edit");
                     @Override
                     public void updateItem(Void item, boolean empty) {
@@ -109,11 +128,11 @@ public class DevicesUIController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            //Chuyển sang giao diện giống add nhưng có sẵn thông tin của devices cần sửa
+                            //Chuyển sang giao diện giống add nhưng có sẵn thông tin của phòng cần sửa
                             btn.setOnAction(e -> {
-                                TableRow<Devices> row = getTableRow();
+                                TableRow<Room> row = getTableRow();
                                 if (row != null) {
-                                    device = row.getItem();
+                                    room = row.getItem();
                                     openEditWindow();
                                 }
                             });
@@ -127,7 +146,7 @@ public class DevicesUIController implements Initializable {
         editColumn.setCellFactory(cellFactory);
     }
 
-    //Mở của sổ để thêm thiết bị
+    //Mở của sổ để thêm phòng
     @FXML
     public void openAddWindow() {
         addAndEditWindow.setVisible(true);
@@ -135,12 +154,15 @@ public class DevicesUIController implements Initializable {
         mainWindow.setEffect(blur);
         addButtons.setVisible(true);
         editButtons.setVisible(false);
-        iconTextField.setText(null);
-        idTextField.setText(null);
+        numberTextField.setText(null);
         nameTextField.setText(null);
-        amountTextField.setText(null);
-        usableTextField.setText(null);
-        brokenTextField.setText(null);
+        moneyTextField.setText(null);
+        enegyTextField.setText(null);
+        waterTextField.setText(null);
+        wifiTextField.setText(null);
+        extraTextField.setText(null);
+        totalTextField.setText(null);
+        statusTextField.setText(null);
     }
 
     //Mở của sổ chỉnh sửa thiết bị
@@ -151,12 +173,15 @@ public class DevicesUIController implements Initializable {
         mainWindow.setEffect(blur);
         addButtons.setVisible(false);
         editButtons.setVisible(true);
-        iconTextField.setText(device.getIconDevice());
-        idTextField.setText(device.getIdDevice());
-        nameTextField.setText(device.getNameDevice());
-        amountTextField.setText(String.valueOf(device.getAmountDevice()));
-        usableTextField.setText(String.valueOf(device.getUsableDevice()));
-        brokenTextField.setText(String.valueOf(device.getBrokenDevice()));
+        numberTextField.setText(room.getNumber());
+        nameTextField.setText(room.getName());
+        moneyTextField.setText(String.valueOf(room.getMoney()));
+        enegyTextField.setText(String.valueOf(room.getEnergy()));
+        waterTextField.setText(String.valueOf(room.getWater()));
+        wifiTextField.setText(String.valueOf(room.getWifi()));
+        extraTextField.setText(String.valueOf(room.getExtra()));
+        totalTextField.setText(String.valueOf(room.getTotal()));
+        statusTextField.setText(room.getStatus());
     }
 
     //Đóng Popup window
@@ -168,34 +193,40 @@ public class DevicesUIController implements Initializable {
 
     //TODO Với các phần thêm, xóa, sửa thì phải cập nhật lên database
     public void addDevice (ActionEvent event) {
-        Devices newDevice = new Devices();
-        newDevice.setIconDevice(iconTextField.getText());
-        newDevice.setIdDevice(idTextField.getText());
-        newDevice.setNameDevice(nameTextField.getText());
-        newDevice.setAmountDevice(Integer.parseInt(amountTextField.getText()));
-        newDevice.setUsableDevice(Integer.parseInt(usableTextField.getText()));
-        newDevice.setBrokenDevice(Integer.parseInt(brokenTextField.getText()));
-        devicesList.add(newDevice);
+        Room newRoom = new Room();
+        newRoom.setNumber(numberTextField.getText());
+        newRoom.setName(nameTextField.getText());
+        newRoom.setMoney(Integer.parseInt(moneyTextField.getText()));
+        newRoom.setEnergy(Integer.parseInt(enegyTextField.getText()));
+        newRoom.setWater(Integer.parseInt(waterTextField.getText()));
+        newRoom.setWifi(Integer.parseInt(wifiTextField.getText()));
+        newRoom.setExtra(Integer.parseInt(extraTextField.getText()));
+        newRoom.setTotal(Integer.parseInt(totalTextField.getText()));
+        newRoom.setStatus(statusTextField.getText());
+        roomList.add(newRoom);
         closePopup();
     }
 
     public void deleteDevice(ActionEvent event) {
-        devicesList.remove(device);
+        roomList.remove(room);
         closePopup();
     }
 
     //Lưu lại thay đổi thiết bị
     public void applyChanges (ActionEvent event) {
-        Devices updateDevice = new Devices();
-        updateDevice.setIconDevice(iconTextField.getText());
-        updateDevice.setIdDevice(idTextField.getText());
-        updateDevice.setNameDevice(nameTextField.getText());
-        updateDevice.setAmountDevice(Integer.parseInt(amountTextField.getText()));
-        updateDevice.setUsableDevice(Integer.parseInt(usableTextField.getText()));
-        updateDevice.setBrokenDevice(Integer.parseInt(brokenTextField.getText()));
+        Room updateRoom = new Room();
+        updateRoom.setNumber(numberTextField.getText());
+        updateRoom.setName(nameTextField.getText());
+        updateRoom.setMoney(Integer.parseInt(moneyTextField.getText()));
+        updateRoom.setEnergy(Integer.parseInt(enegyTextField.getText()));
+        updateRoom.setWater(Integer.parseInt(waterTextField.getText()));
+        updateRoom.setWifi(Integer.parseInt(wifiTextField.getText()));
+        updateRoom.setExtra(Integer.parseInt(extraTextField.getText()));
+        updateRoom.setTotal(Integer.parseInt(totalTextField.getText()));
+        updateRoom.setStatus(statusTextField.getText());
         int i = 0;
-        if (devicesList.get(i).equals(device))
-            devicesList.set(i, updateDevice);
+        if (roomList.get(i).equals(room))
+            roomList.set(i, updateRoom);
         closePopup();
     }
 }
