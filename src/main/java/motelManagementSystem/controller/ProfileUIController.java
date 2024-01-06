@@ -1,17 +1,11 @@
 package motelManagementSystem.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import motelManagementSystem.App;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ProfileUIController implements Initializable {
-    @FXML
-    private TextField nameTextField;
+public class ProfileUIController {
     @FXML
     public void switchToHome() throws IOException {
         App.setRoot("homeUI");
@@ -31,10 +25,5 @@ public class ProfileUIController implements Initializable {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        nameTextField.setText(LoginUIController.admin.getUsername());
     }
 }

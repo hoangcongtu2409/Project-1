@@ -16,7 +16,7 @@ public class App extends Application {
         stage.setTitle("Teaching Aid Management App");
         stage.setScene(scene);
         stage.show();
-        //abcd
+
     }
 
     public static void setRoot(String fxml) throws IOException {
