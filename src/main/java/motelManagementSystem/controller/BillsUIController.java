@@ -5,7 +5,7 @@ import motelManagementSystem.App;
 
 import java.io.IOException;
 
-public class ProfileUIController {
+public class BillsUIController {
     @FXML
     public void switchToHome() throws IOException {
         App.setRoot("homeUI");

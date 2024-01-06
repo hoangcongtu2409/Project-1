@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DevicesUIController implements Initializable {
+public class RoomsUIController implements Initializable {
 
     @FXML
     private AnchorPane mainWindow;
@@ -71,7 +71,7 @@ public class DevicesUIController implements Initializable {
     private ObservableList<Room> roomList;
     private Room room;
 
-    public DevicesUIController() {
+    public RoomsUIController() {
     }
 
     @FXML
