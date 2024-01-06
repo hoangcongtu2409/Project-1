@@ -31,7 +31,7 @@
                                     <Insets top="5.0" />
                                  </HBox.margin>
                               </FontAwesomeIcon>
-                              <Label fx:id="homeButton" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="203.0" text="IT Fighter" textAlignment="CENTER">
+                              <Label fx:id="homeButton" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="203.0" text="Ban Mai Motel" textAlignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -71,7 +71,7 @@
                                     <Insets top="5.0" />
                                  </HBox.margin>
                               </FontAwesomeIcon>
-                              <Label fx:id="devicesButton" onMouseClicked="#switchToDevices" prefHeight="30.0" prefWidth="203.0" text="Devices" textAlignment="CENTER">
+                              <Label fx:id="devicesButton" onMouseClicked="#switchToDevices" prefHeight="30.0" prefWidth="203.0" text="Rooms" textAlignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -111,7 +111,7 @@
                                     <Insets top="5.0" />
                                  </HBox.margin>
                               </FontAwesomeIcon>
-                              <Label fx:id="profileButton" onMouseClicked="#switchToProfile" prefHeight="30.0" prefWidth="203.0" text="Profile" textAlignment="CENTER">
+                              <Label fx:id="profileButton" onMouseClicked="#switchToProfile" prefHeight="30.0" prefWidth="203.0" text="Bills" textAlignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -132,7 +132,7 @@
                <children>
                   <AnchorPane fx:id="mainWindow" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Devices" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="13.626953125">
+                        <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="13.626953125">
                            <font>
                               <Font size="30.0" />
                            </font>
