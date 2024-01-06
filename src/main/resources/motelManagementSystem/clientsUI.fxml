@@ -2,132 +2,225 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="motelManagementSystem.controller.ClientsUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="motelManagementSystem.controller.ClientsUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane prefHeight="800.0" prefWidth="200.0" style="-fx-background-color: #000000;">
                      <children>
-                        <HBox prefHeight="26.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <FontAwesomeIcon size="20" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <Label fx:id="homeButton" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="203.0" text="IT Fighter" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="30.0" />
-                           </padding>
-                        </HBox>
-                        <HBox prefHeight="26.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <FontAwesomeIcon size="20" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <Label fx:id="manageButton" onMouseClicked="#switchToManage" prefHeight="30.0" prefWidth="203.0" text="Manage" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox prefHeight="26.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <FontAwesomeIcon size="20" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <Label fx:id="devicesButton" onMouseClicked="#switchToDevices" prefHeight="30.0" prefWidth="203.0" text="Devices" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox prefHeight="26.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <FontAwesomeIcon size="20" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <Label fx:id="clientsButton" onMouseClicked="#switchToClients" prefHeight="30.0" prefWidth="203.0" text="Clients" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="10.0" layoutY="101.0" prefHeight="26.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <FontAwesomeIcon size="20" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="5.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIcon>
-                              <Label fx:id="profileButton" onMouseClicked="#switchToProfile" prefHeight="30.0" prefWidth="203.0" text="Profile" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
+                        <Label fx:id="homeButton" layoutX="53.0" layoutY="18.0" onMouseClicked="#switchToHome" prefHeight="30.0" prefWidth="94.0" text="ITFighter" textFill="#4845d2">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="70.0" layoutY="67.0" startX="-40.5000114440918" startY="7.62939453125E-6" stroke="#767676" />
+                        <Label fx:id="manageButton" layoutY="144.0" onMouseClicked="#switchToManage" prefHeight="33.0" prefWidth="154.0" text="           Manage" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="devicesButton" layoutY="201.0" onMouseClicked="#switchToDevices" prefHeight="33.0" prefWidth="154.0" text="           Devices" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="profileButton" layoutY="332.0" onMouseClicked="#switchToProfile" prefHeight="33.0" prefWidth="154.0" text="           Profile" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="clientsButton" layoutX="-11.0" layoutY="257.0" onMouseClicked="#switchToClients" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #082E66; -fx-background-radius: 10;" text="             Clients" textFill="#89b9ff" AnchorPane.leftAnchor="-11.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" endY="-6.103515625E-5" layoutX="69.0" layoutY="666.0" startX="-40.0" startY="-6.103515625E-5" stroke="#767676" />
+                        <Text fill="WHITE" layoutX="49.4" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reset Password" AnchorPane.leftAnchor="49.4">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="49.4" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" AnchorPane.leftAnchor="49.4">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <FontAwesomeIcon fill="WHITE" glyphName="GEARS" layoutX="26.0" layoutY="169.0" selectionEnd="1" size="2em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="26.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="26.4" layoutY="290.0" selectionEnd="1" size="2em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="26.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" glyphName="CLIPBOARD" layoutX="34.0" layoutY="357.0" selectionEnd="1" size="2em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="26.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" glyphName="DESKTOP" layoutX="26.4" layoutY="226.0" selectionEnd="1" size="1.7em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="26.4">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="26.4" layoutY="711.0" selectionEnd="1" size="2em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="26.4">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" glyphName="POWER_OFF" layoutX="23.0" layoutY="752.0" selectionEnd="1" size="2em" wrappingWidth="13.5999755859375" AnchorPane.leftAnchor="23.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </FontAwesomeIcon>
                      </children>
-                  </VBox>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
+                  <AnchorPane fx:id="addWindow" layoutX="110.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000; -fx-view-order: 0; -fx-background-radius: 30;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Label layoutX="73.0" layoutY="43.0" text="Add new client" textFill="WHITE" AnchorPane.leftAnchor="73.0" AnchorPane.topAnchor="43.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="108.0" text="Client name *" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="nameAddTextField" layoutX="107.0" layoutY="146.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="209.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="emailAddTextField" layoutX="107.0" layoutY="246.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="306.0" text="Phone number" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="phoneAddTextField" layoutX="106.0" layoutY="345.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="406.0" text="Address" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="departmentAddTextField" layoutX="106.0" layoutY="450.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Button layoutX="120.0" layoutY="525.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button layoutX="455.0" layoutY="524.0" mnemonicParsing="false" onAction="#addClient" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000; -fx-view-order: 0; -fx-background-radius: 30;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Label layoutX="84.0" layoutY="49.0" prefHeight="54.0" prefWidth="295.0" text="Edit client profile" textFill="WHITE" AnchorPane.leftAnchor="84.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="111.0" text="Client name" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="nameTextField" layoutX="106.0" layoutY="149.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="104.0" layoutY="207.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="emailTextField" layoutX="105.0" layoutY="245.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="105.0" layoutY="304.0" text="Phone number" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="phoneTextField" layoutX="107.0" layoutY="342.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="106.0" layoutY="397.0" text="Department" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="departmentTextField" layoutX="105.0" layoutY="438.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button layoutX="449.0" layoutY="522.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020; -fx-view-order: 1;" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="74.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" wrappingWidth="112.00003662109384" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="24.3896484375">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Text>
+                        <ScrollPane fitToHeight="true" hbarPolicy="NEVER" layoutX="-217.0" layoutY="125.0" style="-fx-background-color: #202020; -fx-border-color: #00000080;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="124.0">
+                           <content>
+                              <AnchorPane maxHeight="1.7976931348623157E308" prefWidth="1080.0" style="-fx-background-color: #202020;">
+                                 <children>
+                                    <VBox fx:id="allClientsBox" maxHeight="1.7976931348623157E308" spacing="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <padding>
+                                          <Insets bottom="50.0" left="20.0" right="20.0" top="50.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" onAction="#openAddWindow" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Add New Client" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="577.0" layoutY="39.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Clients..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
